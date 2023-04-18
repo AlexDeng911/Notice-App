@@ -1,0 +1,32 @@
+.note {
+  display: flex;
+  align-items: center;
+  width: 189px;
+  height: auto;
+  background-color: darkgrey;
+  border-top: black solid 1px;
+  border-bottom: black solid 1px;
+}
+
+.title {
+  flex: 1;
+  color: black;
+  font-size: 16px;
+  margin: 0 0 0 7px;
+  padding: 5px;
+  width: 80%;
+}
+
+.delete {
+  color: black;
+  background-color: darkgrey;
+  font-size: large;
+  border: darkgrey;
+  margin-left: 10px;
+  width: 15%;
+  cursor: pointer;
+}
+.delete:hover {
+  background-color: darkgrey;
+  color: #fff;
+}
