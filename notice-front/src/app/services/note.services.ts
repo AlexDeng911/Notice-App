@@ -21,6 +21,10 @@ export class NoteServices{
     }).valueChanges.pipe(pluck('data','getNotes'));
   }
 
+  createNote(): {
+
+  }
+
 }
 
 // delete(id:string) {
