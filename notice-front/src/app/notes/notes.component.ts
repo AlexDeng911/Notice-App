@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {NoteServices} from '../services/note.services';
 import {ApolloQueryResult} from "@apollo/client/core";
 import {Store} from "@ngxs/store";
 import {Observable} from "rxjs";

@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {NoteServices} from "../services/note.services";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-tags',
@@ -7,8 +6,7 @@ import {NoteServices} from "../services/note.services";
   styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent {
-  @Input() notes: any;
 
-  constructor(private noteServices: NoteServices) {}
+
+
 }
-
