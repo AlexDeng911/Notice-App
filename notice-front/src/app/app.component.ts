@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {NotesComponent} from "./notes/notes.component";
+import {CreateNotesQl} from "./queries/CreateNoteQL";
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,9 @@ import {NotesComponent} from "./notes/notes.component";
 export class AppComponent {
 
   protected readonly NotesComponent = NotesComponent;
+    protected readonly CreateNotesQl = CreateNotesQl;
+
+  createNote() {
+
+  }
 }

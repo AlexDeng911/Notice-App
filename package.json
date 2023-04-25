@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@ngxs/devtools-plugin": "^3.8.0",
-    "@ngxs/store": "^3.8.0",
-    "ngxs": "^2.0.0-rc.20"
-  }
-}
