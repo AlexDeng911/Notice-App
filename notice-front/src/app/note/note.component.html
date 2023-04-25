@@ -1,5 +1,13 @@
-
-<div class="note">
+<div class="top-place">
+  <div class="top-left">
+    <input class="input"  >
+    <button class="add-note" (click)="createNote()">+</button>
+  </div>
+  <div class="top-right">
+    <p class="text-on-top"></p>
+  </div>
+</div>
+<div class="note" (click)="editNote()">
   <p class="title">{{note.title}}</p>
-  <button class="delete" (click)="delete()">x</button>
+  <button class="delete" (click)="deleteNote(note.id)">x</button>
 </div>
