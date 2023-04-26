@@ -9,7 +9,7 @@ import {NoteInterface} from "../interfaces/note.interface";
   providedIn: 'root'
 })
 
-export class NoteServices {
+export class NoteService {
   [x: string]: any;
   private noteServices: any;
   private editNoteQL: any;
