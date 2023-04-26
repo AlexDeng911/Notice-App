@@ -12,13 +12,19 @@ import {NoteState} from "./core/state/note.state";
 import {environment} from "./environments/environment";
 import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
+import {TopEditorComponent} from "./top-editor/top-editor.component";
+import {MainEditorComponent} from "./main-editor/main-editor.component";
+import {NoteAddComponent} from "./note-add/note-add.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
     NoteComponent,
-    TagsComponent
+    TagsComponent,
+    TopEditorComponent,
+    MainEditorComponent,
+    NoteAddComponent
   ],
   imports: [
     BrowserModule,

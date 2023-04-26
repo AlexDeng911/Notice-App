@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {ApolloQueryResult} from "@apollo/client/core";
-import {Store} from "@ngxs/store";
 import {Observable} from "rxjs";
 import {NoteInterface} from "../interfaces/note.interface";
 import {NoteState} from "../core/state/note.state";
 import {GetNotes} from "../core/actions/note.action";
+import {Store} from "@ngxs/store"
 
 @Component({
   selector: 'app-notes',

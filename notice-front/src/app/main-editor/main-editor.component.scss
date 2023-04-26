@@ -1,0 +1,26 @@
+.main-editor{
+  display: block;
+  align-items: center;
+  justify-content: right;
+  width: 655px;
+  height: 500px;
+  background-color: lightgrey;
+  border-bottom-right-radius: 15px;
+  border-top: solid 1px black;
+}
+.main-text{
+  display: block;
+  justify-content: left;
+  align-items: center;
+  width: 670px;
+  height: 500px;
+  background-color: lightgrey;
+  color: black;
+  border: none;
+  padding: 5px;
+  margin: 8px 0 0 8px;
+}
+input{
+  border: none;
+}
+
