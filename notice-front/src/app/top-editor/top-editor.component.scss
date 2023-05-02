@@ -2,24 +2,23 @@
   display: inline;
   align-items: center;
   justify-content: right;
-  width: 655px;
-  height: 50px;
   background-color: lightgrey;
-  border-top-right-radius: 15px;
-  border-bottom: solid 1px black;
 }
 .text-on-top{
   display: flex;
   justify-content: left;
   align-items: baseline;
-  width: 670px;
-  height: 30px;
+  width: 705px;
+  height: 48px;
   background-color: lightgrey;
+  border-top-right-radius: 15px;
   color: black;
-  border: none;
-  padding: 5px;
-  margin: 8px 0 0 8px;
+  border-top: lightgrey;
+  border-left: lightgrey;
+  border-right: lightgrey;
+  border-bottom: black solid 2px;
 }
-input{
-  //border: none;
+:active, :focus, :hover{
+  outline: 0;
+  outline-offset: 0;
 }
