@@ -1,4 +1,4 @@
-<div class="top-left">
-  <input class="input">
-  <button class="add-note">+</button>
-</div>
+<ng-form class="top-left" >
+  <input type="text" class="input" [(ngModel)]="note.title" name="title">
+  <button class="add-note" (click)="noteAdd()">+</button>
+</ng-form>

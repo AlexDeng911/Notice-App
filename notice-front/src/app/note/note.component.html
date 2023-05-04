@@ -1,5 +1,5 @@
 
 <div class="note" >
-  <p class="title">{{note.title}}</p>
-  <button class="delete" >x</button>
+  <p class="title" (click)="noteEdit(note)">{{note.title}}</p>
+  <button class="delete" (click)="noteDelete(note)">x</button>
 </div>

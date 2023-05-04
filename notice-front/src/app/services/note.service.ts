@@ -30,6 +30,7 @@ export class NoteService {
   createNote(note: NoteInterface): Observable<NoteInterface> {
     return this.apollo.mutate<any, NoteInterface>({
       mutation: this.createNoteQL.document,
+      variables: {id: Number(), title: '', text: '', createDate: new Date, updateDate: new Date},
       fetchPolicy: 'network-only'
     }).pipe(
       map(response => response.data.createNote)
@@ -39,14 +40,14 @@ export class NoteService {
   editNote(note: NoteInterface): Observable<NoteInterface> {
     return this.apollo.mutate<any, NoteInterface>({
       mutation: this.editNoteQL.document,
-      variables: {id: note.id, title: note.title, text: note.text, updateDate: note.updateDate, createDate: note.createDate},
+      variables: {id: Number(), title: '', text: '', createDate: new Date, updateDate: new Date},
       fetchPolicy: 'network-only'
     }).pipe(
       map(response => response.data.editNote)
     );
   }
 
-  deleteNote(id: string): Observable<boolean> {
+  deleteNote(id: number): Observable<boolean> {
     return this.apollo.mutate<any>({
       mutation: this.deleteNoteQL.document,
       variables: {id},

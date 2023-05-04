@@ -13,7 +13,7 @@ import {environment} from "./environments/environment";
 import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {TopEditorComponent} from "./top-editor/top-editor.component";
-import {MainEditorComponent} from "./main-editor/main-editor.component";
+import {NoteEditComponent} from "./note-edit/note-edit.component";
 import {NoteAddComponent} from "./note-add/note-add.component";
 
 @NgModule({
@@ -23,7 +23,7 @@ import {NoteAddComponent} from "./note-add/note-add.component";
     NoteComponent,
     TagsComponent,
     TopEditorComponent,
-    MainEditorComponent,
+    NoteEditComponent,
     NoteAddComponent
   ],
   imports: [

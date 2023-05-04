@@ -5,6 +5,7 @@ import {NoteInterface} from "../interfaces/note.interface";
 import {NoteState} from "../core/state/note.state";
 import {GetNotes} from "../core/actions/note.action";
 import {Store} from "@ngxs/store"
+import {NoteEdit} from "../core/actions/note-edit.action";
 
 @Component({
   selector: 'app-notes',
@@ -21,5 +22,7 @@ export class NotesComponent {
     })
     this.noteState.dispatch(new GetNotes())
   }
+
+  protected readonly NoteEdit = NoteEdit;
 }
 
