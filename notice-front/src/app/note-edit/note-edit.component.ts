@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, Injectable} from '@angular/core';
 import {NoteInterface} from "../interfaces/note.interface";
 import {NoteService} from "../services/note.service";
 import {Store} from "@ngxs/store";
 import { NoteState } from "../core/state/note.state";
 import {NoteEdit} from "../core/actions/note-edit.action";
+
 
 @Component({
   selector: 'app-note-edit',
@@ -27,8 +28,4 @@ export class NoteEditComponent {
     this.store.dispatch(new NoteEdit(note))
   }
 
-  saveEdit(note: NoteInterface) {
-    this.noteService.saveEdit(this.note);
-    console.log(this.note);
-  }
 }

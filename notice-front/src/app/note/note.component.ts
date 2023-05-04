@@ -19,13 +19,4 @@ export class NoteComponent {
 
   constructor(private noteState: Store) {
   }
-
-
-  noteEdit(note: NoteInterface) {
-
-  }
-
-  noteDelete(note: NoteInterface) {
-
-  }
 }

@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Apollo} from "apollo-angular";
+import {Apollo, MutationResult} from "apollo-angular";
 import {GetNotesQl} from "../queries/GetNotesQl";
 import {CreateNotesQl} from "../queries/CreateNoteQL";
 import {map, Observable, pluck} from "rxjs";
@@ -26,35 +26,9 @@ export class NoteService {
       fetchPolicy: 'network-only'
     }).valueChanges.pipe(pluck('data', 'getNotes'));
   }
-
-  createNote(note: NoteInterface): Observable<NoteInterface> {
-    return this.apollo.mutate<any, NoteInterface>({
-      mutation: this.createNoteQL.document,
-      variables: {id: Number(), title: '', text: '', createDate: new Date, updateDate: new Date},
-      fetchPolicy: 'network-only'
-    }).pipe(
-      map(response => response.data.createNote)
-    );
-  }
-
-  editNote(note: NoteInterface): Observable<NoteInterface> {
-    return this.apollo.mutate<any, NoteInterface>({
-      mutation: this.editNoteQL.document,
-      variables: {id: Number(), title: '', text: '', createDate: new Date, updateDate: new Date},
-      fetchPolicy: 'network-only'
-    }).pipe(
-      map(response => response.data.editNote)
-    );
-  }
-
-  deleteNote(id: number): Observable<boolean> {
-    return this.apollo.mutate<any>({
-      mutation: this.deleteNoteQL.document,
-      variables: {id},
-      fetchPolicy: 'network-only'
-    }).pipe(
-      map(response => response.data.deleteNote)
-    );
+  createNote(): Observable<MutationResult<{ createNote: NoteInterface }>>{
+    return this.createNoteQL.mutate()
+      // .pipe(pluck('data', ''))
   }
 }
 

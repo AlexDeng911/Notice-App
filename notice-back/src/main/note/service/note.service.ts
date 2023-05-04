@@ -14,4 +14,8 @@ export class NoteService {
   async findNotes(): Promise<NoteEntity[]> {
     return await this.noteRepository.find();
   }
+
+  async createNote(): Promise<NoteEntity> {
+    return await this.noteRepository.save(this.noteRepository.create());
+  }
 }

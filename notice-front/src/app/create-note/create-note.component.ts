@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Store} from "@ngxs/store";
-import {NoteAdd} from "../core/actions/note-add.action";
+import {CreateNote} from "../core/actions/note-add.action";
 import {NoteInterface} from "../interfaces/note.interface";
 
 @Component({
-  selector: 'app-note-add',
-  templateUrl: './note-add.component.html',
-  styleUrls: ['./note-add.component.scss']
+  selector: 'app-create-note',
+  templateUrl: './create-note.component.html',
+  styleUrls: ['./create-note.component.scss']
 })
-export class NoteAddComponent {
+export class CreateNoteComponent {
 
   note: NoteInterface = {
     id: Number(),
@@ -21,10 +21,10 @@ export class NoteAddComponent {
   constructor(private store: Store) {
   }
 
-  noteAdd(){
-    this.store.dispatch(new NoteAdd(this.note));
+  createNote(){
+    this.store.dispatch(new CreateNote(this.note));
     this.note = {
-      id: (this.note.id)+1,
+      id: Number(),
       title: '',
       text: '',
       createDate: new Date(),

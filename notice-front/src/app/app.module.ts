@@ -14,18 +14,18 @@ import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {TopEditorComponent} from "./top-editor/top-editor.component";
 import {NoteEditComponent} from "./note-edit/note-edit.component";
-import {NoteAddComponent} from "./note-add/note-add.component";
+import {CreateNoteComponent} from "./create-note/create-note.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NotesComponent,
-    NoteComponent,
-    TagsComponent,
-    TopEditorComponent,
-    NoteEditComponent,
-    NoteAddComponent
-  ],
+    declarations: [
+        AppComponent,
+        NotesComponent,
+        NoteComponent,
+        TagsComponent,
+        TopEditorComponent,
+        NoteEditComponent,
+        CreateNoteComponent
+    ],
   imports: [
     BrowserModule,
     GraphqlModule,

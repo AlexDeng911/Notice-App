@@ -3,18 +3,21 @@ import {NoteService} from "../../services/note.service";
 import {NoteInterface} from "../../interfaces/note.interface";
 import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {GetNotes} from "../actions/note.action";
-import {NoteAdd} from "../actions/note-add.action";
+import {CreateNote} from "../actions/note-add.action";
 import {NoteEdit} from "../actions/note-edit.action";
 import {NoteDelete} from "../actions/note-delete.action";
+import {tap} from "rxjs";
 
 export interface NoteStateModal{
   notes: NoteInterface[];
+  selectedNote: NoteInterface | null;
 }
 
 @State<NoteStateModal>({
   name: 'notes',
   defaults: {
-    notes: []
+    notes: [],
+    selectedNote: null
   }
 })
 @Injectable()
@@ -34,35 +37,21 @@ export class NoteState{
       })
     })
   }
-  @Action(NoteAdd) noteAdd({getState, patchState}: StateContext<NoteStateModal>,
-                           {note}: NoteAdd){
+  @Action(CreateNote)
+  noteAdd({getState, setState}: StateContext<NoteStateModal>,
+                           {note}: CreateNote){
     const state = getState();
-    patchState({
-      notes: [...state.notes, note]
-    })
+    return this.noteService.createNote().pipe(tap((result)=>{
+      if (result.data){
+        const status = state.notes.filter((note)=>{
+          return note.id == result.data?.createNote.id
+        }).length > 0;
+        setState({...state,
+          notes: status? [...state.notes]:[...state.notes, result.data.createNote],
+          selectedNote: result.data.createNote
+        })
+      }
+    }))
   }
-  @Action(NoteEdit) noteEdit({getState, patchState}: StateContext<NoteStateModal>,
-                             {note}: NoteEdit){
-    const state = getState();
-    const notes = [...state.notes];
-    const index = notes.findIndex(n => n.id === note.id);
-    if (index !== -1) {
-      notes[index] = note;
-      patchState({
-        notes: notes
-      });
-    }
-  }
-  @Action(NoteDelete) noteDelete({getState, patchState}: StateContext<NoteStateModal>,
-                                 {id}: NoteDelete | any){
-    const state = getState();
-    const notes = [...state.notes];
-    const index = notes.findIndex(n => n.id === id);
-    if (index !== -1) {
-      notes.splice(index, 1);
-      patchState({
-        notes: notes
-      });
-    }
-  }
+
 }
