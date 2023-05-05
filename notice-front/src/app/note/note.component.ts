@@ -19,4 +19,8 @@ export class NoteComponent {
 
   constructor(private noteState: Store) {
   }
+
+  deleteNote(id: any) {
+    
+  }
 }

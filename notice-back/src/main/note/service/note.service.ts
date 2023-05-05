@@ -18,4 +18,12 @@ export class NoteService {
   async createNote(): Promise<NoteEntity> {
     return await this.noteRepository.save(this.noteRepository.create());
   }
+
+  async deleteNoteById(id: number): Promise<NoteEntity> {
+    const note = await this.noteRepository.findOneBy(id);
+    if (!note) {
+      return null;
+    }
+    await this.noteRepository.remove(note);
+  }
 }
