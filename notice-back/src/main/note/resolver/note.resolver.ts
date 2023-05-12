@@ -23,7 +23,7 @@ export class NoteResolver {
   }
   @Mutation(() => Boolean, { name: 'deleteNote' })
   async deleteNote(@Args('id', { type: () => Number() }) id: number) {
-    const deletedNote = await this.noteService.deleteNoteById(id);
+    const deletedNote = await this.noteService.deleteNote(id);
     if (!deletedNote) {
       throw new NotFoundException(`Note with id ${id} does not exist`);
     }

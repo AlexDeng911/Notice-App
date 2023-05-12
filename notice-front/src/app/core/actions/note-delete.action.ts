@@ -1,8 +1,8 @@
 import {NoteInterface} from "../../interfaces/note.interface";
 
-export class NoteDelete {
-  static readonly type = '[Note] Delete';
+export class DeleteNote {
+  static readonly type = '[Delete] Note';
 
-  constructor(public note: NoteInterface) {
+  constructor(public id: NoteInterface) {
   }
 }

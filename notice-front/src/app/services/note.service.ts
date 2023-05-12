@@ -18,7 +18,8 @@ export class NoteService {
 
   constructor(private apollo: Apollo,
               private getNoteQl: GetNotesQl,
-              private createNoteQL: CreateNotesQl) { }
+              private createNoteQL: CreateNotesQl,
+              private deleteNoteQl: DeleteNoteQl) { }
 
   getNotes(): Observable<NoteInterface[]> {
     return this.apollo.watchQuery<any>({
@@ -30,6 +31,7 @@ export class NoteService {
     return this.createNoteQL.mutate()
       // .pipe(pluck('data', ''))
   }
+  deleteNote(id: any): Observable<MutationResult>{
+    return this.deleteNoteQL.delete(id)
+  }
 }
-
-

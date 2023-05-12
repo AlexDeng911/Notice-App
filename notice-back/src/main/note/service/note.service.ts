@@ -19,8 +19,9 @@ export class NoteService {
     return await this.noteRepository.save(this.noteRepository.create());
   }
 
-  async deleteNoteById(id: number): Promise<NoteEntity> {
+  async deleteNote(id: any): Promise<NoteEntity> {
     const note = await this.noteRepository.findOneBy(id);
+    console.log(note.id);
     if (!note) {
       return null;
     }
